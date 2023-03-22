@@ -124,7 +124,7 @@ public class CommandTestUtil {
         assertTrue(targetIndex.getZeroBased() < model.getSortedPersonList().size());
 
         Person person = model.getSortedPersonList().get(targetIndex.getZeroBased());
-        final String[] splitName = person.getName().fullName.split("\\s+");
+        final String[] splitName = person.getName().toString().split("\\s+");
         model.updateFilteredPersonList(new NameContainsKeywordsPredicate(Arrays.asList(splitName[0])));
 
         assertEquals(1, model.getSortedPersonList().size());

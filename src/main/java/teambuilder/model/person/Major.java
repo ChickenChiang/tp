@@ -15,7 +15,7 @@ public class Major {
 
     public static final String VALIDATION_REGEX = "[\\p{Alnum}][\\p{Alnum} ]*";
 
-    public final String majorStudy;
+    private final String majorStudy;
 
     /**
      * Constructs a {@code Name}.

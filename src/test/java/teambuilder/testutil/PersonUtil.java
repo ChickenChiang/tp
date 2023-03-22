@@ -6,6 +6,7 @@ import static teambuilder.logic.parser.CliSyntax.PREFIX_MAJOR;
 import static teambuilder.logic.parser.CliSyntax.PREFIX_NAME;
 import static teambuilder.logic.parser.CliSyntax.PREFIX_PHONE;
 import static teambuilder.logic.parser.CliSyntax.PREFIX_TAG;
+import static teambuilder.logic.parser.CliSyntax.PREFIX_TEAM;
 
 import java.util.Set;
 
@@ -13,6 +14,8 @@ import teambuilder.logic.commands.AddCommand;
 import teambuilder.logic.commands.EditCommand.EditPersonDescriptor;
 import teambuilder.model.person.Person;
 import teambuilder.model.tag.Tag;
+
+
 
 /**
  * A utility class for Person.
@@ -31,13 +34,16 @@ public class PersonUtil {
      */
     public static String getPersonDetails(Person person) {
         StringBuilder sb = new StringBuilder();
-        sb.append(PREFIX_NAME + person.getName().fullName + " ");
+        sb.append(PREFIX_NAME + person.getName().toString() + " ");
         sb.append(PREFIX_PHONE + person.getPhone().toString() + " ");
-        sb.append(PREFIX_EMAIL + person.getEmail().value + " ");
-        sb.append(PREFIX_ADDRESS + person.getAddress().value + " ");
-        sb.append(PREFIX_MAJOR + person.getMajor().majorStudy + " ");
+        sb.append(PREFIX_EMAIL + person.getEmail().toString() + " ");
+        sb.append(PREFIX_ADDRESS + person.getAddress().toString() + " ");
+        sb.append(PREFIX_MAJOR + person.getMajor().toString() + " ");
         person.getTags().stream().forEach(
-            s -> sb.append(PREFIX_TAG + s.tagName + " ")
+            s -> sb.append(PREFIX_TAG + s.toString() + " ")
+        );
+        person.getTeams().stream().forEach(
+                s -> sb.append(PREFIX_TEAM + s.toString() + " ")
         );
         return sb.toString();
     }
@@ -47,17 +53,17 @@ public class PersonUtil {
      */
     public static String getEditPersonDescriptorDetails(EditPersonDescriptor descriptor) {
         StringBuilder sb = new StringBuilder();
-        descriptor.getName().ifPresent(name -> sb.append(PREFIX_NAME).append(name.fullName).append(" "));
-        descriptor.getPhone().ifPresent(phone -> sb.append(PREFIX_PHONE).append(phone.value).append(" "));
-        descriptor.getEmail().ifPresent(email -> sb.append(PREFIX_EMAIL).append(email.value).append(" "));
-        descriptor.getAddress().ifPresent(address -> sb.append(PREFIX_ADDRESS).append(address.value).append(" "));
-        descriptor.getMajor().ifPresent(major -> sb.append(PREFIX_MAJOR).append(major.majorStudy).append(" "));
+        descriptor.getName().ifPresent(name -> sb.append(PREFIX_NAME).append(name.toString()).append(" "));
+        descriptor.getPhone().ifPresent(phone -> sb.append(PREFIX_PHONE).append(phone.toString()).append(" "));
+        descriptor.getEmail().ifPresent(email -> sb.append(PREFIX_EMAIL).append(email.toString()).append(" "));
+        descriptor.getAddress().ifPresent(address -> sb.append(PREFIX_ADDRESS).append(address.toString()).append(" "));
+        descriptor.getMajor().ifPresent(major -> sb.append(PREFIX_MAJOR).append(major.toString()).append(" "));
         if (descriptor.getTags().isPresent()) {
             Set<Tag> tags = descriptor.getTags().get();
             if (tags.isEmpty()) {
                 sb.append(PREFIX_TAG);
             } else {
-                tags.forEach(s -> sb.append(PREFIX_TAG).append(s.tagName).append(" "));
+                tags.forEach(s -> sb.append(PREFIX_TAG).append(s.toString()).append(" "));
             }
         }
         return sb.toString();

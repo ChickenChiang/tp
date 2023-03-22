@@ -52,17 +52,17 @@ public class PersonCard extends UiPart<Region> {
         super(FXML);
         this.person = person;
         id.setText(displayedIndex + ". ");
-        name.setText(person.getName().fullName);
+        name.setText(person.getName().toString());
         phone.setText(person.getPhone().toString());
-        address.setText(person.getAddress().value);
-        email.setText(person.getEmail().value);
-        major.setText(person.getMajor().majorStudy);
+        address.setText(person.getAddress().toString());
+        email.setText(person.getEmail().toString());
+        major.setText(person.getMajor().toString());
         person.getTags().stream()
-                .sorted(Comparator.comparing(tag -> tag.tagName))
-                .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
+                .sorted(Comparator.comparing(tag -> tag.toString()))
+                .forEach(tag -> tags.getChildren().add(new Label(tag.toString())));
         person.getTeams().stream()
-                .sorted(Comparator.comparing(tag -> tag.tagName))
-                .forEach(tag -> teams.getChildren().add(new Label(tag.tagName)));
+                .sorted(Comparator.comparing(tag -> tag.toString()))
+                .forEach(tag -> teams.getChildren().add(new Label(tag.toString())));
     }
 
     @Override
