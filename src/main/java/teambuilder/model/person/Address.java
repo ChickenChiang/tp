@@ -3,6 +3,8 @@ package teambuilder.model.person;
 import static java.util.Objects.requireNonNull;
 import static teambuilder.commons.util.AppUtil.checkArgument;
 
+import java.util.Optional;
+
 /**
  * Represents a Person's address in the address book.
  * Guarantees: immutable; is valid as declared in {@link #isValidAddress(String)}
@@ -16,8 +18,9 @@ public class Address {
      * otherwise " " (a blank string) becomes a valid input.
      */
     public static final String VALIDATION_REGEX = "[^\\s].*";
+    private static final Address NO_ADDRESS = new Address();
 
-    private final String value;
+    private final Optional<String> value;
 
     /**
      * Constructs an {@code Address}.
@@ -27,8 +30,17 @@ public class Address {
     public Address(String address) {
         requireNonNull(address);
         checkArgument(isValidAddress(address), MESSAGE_CONSTRAINTS);
-        value = address;
+        value = Optional.of(address);
     }
+
+    private Address() {
+        value = Optional.empty();
+    }
+
+    public static Address emptyAddress() {
+        return NO_ADDRESS;
+    }
+
 
     /**
      * Returns true if a given string is a valid email.
@@ -39,7 +51,7 @@ public class Address {
 
     @Override
     public String toString() {
-        return value;
+        return value.orElse("");
     }
 
     @Override
