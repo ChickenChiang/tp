@@ -13,7 +13,7 @@ public class Tag {
             + " with only a single whitespace between words if there are multiple words";
     public static final String VALIDATION_REGEX = "^([a-zA-Z0-9]+\\s)*[a-zA-Z0-9]+$";
 
-    public final String tagName;
+    private final String tagName;
 
     /**
      * Constructs a {@code Tag}.
@@ -49,7 +49,7 @@ public class Tag {
      * Format state as text for viewing.
      */
     public String toString() {
-        return '[' + tagName + ']';
+        return tagName;
     }
 
 }
