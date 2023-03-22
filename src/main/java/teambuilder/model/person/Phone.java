@@ -17,7 +17,7 @@ public class Phone {
     public static final String VALIDATION_REGEX = "\\d{3,}";
     private static final Phone PHONE_STUB = new Phone();
 
-    public final Optional<String> value;
+    private final Optional<String> value;
 
     /**
      * Constructs a {@code Phone}.
