@@ -62,8 +62,17 @@ public class PersonUtil {
             Set<Tag> tags = descriptor.getTags().get();
             if (tags.isEmpty()) {
                 sb.append(PREFIX_TAG);
+                sb.append(" ");
             } else {
                 tags.forEach(s -> sb.append(PREFIX_TAG).append(s.toString()).append(" "));
+            }
+        }
+        if (descriptor.getTeams().isPresent()) {
+            Set<Tag> teams = descriptor.getTeams().get();
+            if (teams.isEmpty()) {
+                sb.append(PREFIX_TEAM);
+            } else {
+                teams.forEach(s -> sb.append(PREFIX_TEAM).append(s.toString()).append(" "));
             }
         }
         return sb.toString();
