@@ -15,7 +15,7 @@ public class Phone {
     public static final String MESSAGE_CONSTRAINTS =
             "Phone numbers should only contain numbers, and it should be at least 3 digits long";
     public static final String VALIDATION_REGEX = "\\d{3,}";
-    private static final Phone PHONE_STUB = new Phone();
+    private static final Phone NO_PHONE = new Phone();
 
     private final Optional<String> value;
 
@@ -42,12 +42,12 @@ public class Phone {
     }
 
     public static Phone emptyPhone() {
-        return PHONE_STUB;
+        return NO_PHONE;
     }
 
     @Override
     public String toString() {
-        return value.orElse("");
+        return value.get();
     }
 
     @Override
