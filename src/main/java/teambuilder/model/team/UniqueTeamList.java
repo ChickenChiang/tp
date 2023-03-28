@@ -1,6 +1,7 @@
 package teambuilder.model.team;
 
 import static java.util.Objects.requireNonNull;
+<<<<<<< HEAD
 
 import java.util.Iterator;
 
@@ -8,11 +9,24 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import teambuilder.model.person.Person;
 import teambuilder.model.tag.Tag;
+=======
+import static teambuilder.commons.util.CollectionUtil.requireAllNonNull;
+
+import java.util.Iterator;
+import java.util.List;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+>>>>>>> ad1bdca9316e9d493d644217905d012e13d26501
 import teambuilder.model.team.exceptions.DuplicateTeamException;
 import teambuilder.model.team.exceptions.TeamNotFoundException;
 
 /**
+<<<<<<< HEAD
  * A list of teams that enforces uniqueness between its elements and does not allow nulls.
+=======
+ * The type Unique team list.
+>>>>>>> ad1bdca9316e9d493d644217905d012e13d26501
  */
 public class UniqueTeamList implements Iterable<Team> {
 
@@ -41,8 +55,28 @@ public class UniqueTeamList implements Iterable<Team> {
     }
 
     /**
-     * Removes the equivalent team from the list.
-     * The team must exist in the list.
+     * Replaces the Team {@code target} in the list with {@code editedTeam}.
+     * {@code target} must exist in the list.
+     * The Team identity of {@code editedTeam} must not be the same as another existing team in the list.
+     */
+    public void setTeam(Team target, Team editedTeam) {
+        requireAllNonNull(target, editedTeam);
+
+        int index = internalList.indexOf(target);
+        if (index == -1) {
+            throw new TeamNotFoundException();
+        }
+
+        if (!target.isSameTeam(editedTeam) && contains(editedTeam)) {
+            throw new DuplicateTeamException();
+        }
+
+        internalList.set(index, editedTeam);
+    }
+
+    /**
+     * Removes the equivalent person from the list.
+     * The person must exist in the list.
      */
     public void remove(Team toRemove) {
         requireNonNull(toRemove);
@@ -89,6 +123,24 @@ public class UniqueTeamList implements Iterable<Team> {
     }
 
 
+    public void setTeams(UniqueTeamList replacement) {
+        requireNonNull(replacement);
+        internalList.setAll(replacement.internalList);
+    }
+
+    /**
+     * Replaces the contents of this list with {@code teams}.
+     * {@code teams} must not contain duplicate teams.
+     */
+    public void setTeams(List<Team> teams) {
+        requireAllNonNull(teams);
+        if (!teamsAreUnique(teams)) {
+            throw new DuplicateTeamException();
+        }
+
+        internalList.setAll(teams);
+    }
+
     /**
      * Returns the backing list as an unmodifiable {@code ObservableList}.
      */
@@ -111,5 +163,19 @@ public class UniqueTeamList implements Iterable<Team> {
     @Override
     public int hashCode() {
         return internalList.hashCode();
+    }
+
+    /**
+     * Returns true if {@code teams} contains only unique teams.
+     */
+    private boolean teamsAreUnique(List<Team> teams) {
+        for (int i = 0; i < teams.size() - 1; i++) {
+            for (int j = i + 1; j < teams.size(); j++) {
+                if (teams.get(i).isSameTeam(teams.get(j))) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 }
