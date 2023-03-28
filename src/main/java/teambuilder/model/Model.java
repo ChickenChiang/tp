@@ -85,6 +85,9 @@ public interface Model extends Originator {
      */
     boolean hasTeam(Team team);
 
+    void setTeam(Team team, Team editedTeam);
+
+
     /**
      * Deletes the given team.
      * The team must exist in the address book.
@@ -111,7 +114,7 @@ public interface Model extends Originator {
     ObservableList<Person> getSortedPersonList();
 
     /** Returns an unmodifiable view of the team list */
-    ObservableList<Team> getTeamList();
+    ObservableList<Team> getSortedTeamList();
 
     /**
      * Updates the filter of the filtered person list to filter by the given {@code predicate}.

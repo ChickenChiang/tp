@@ -1,15 +1,6 @@
 package teambuilder.model.team;
 
 import static java.util.Objects.requireNonNull;
-<<<<<<< HEAD
-
-import java.util.Iterator;
-
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import teambuilder.model.person.Person;
-import teambuilder.model.tag.Tag;
-=======
 import static teambuilder.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.util.Iterator;
@@ -17,7 +8,8 @@ import java.util.List;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
->>>>>>> ad1bdca9316e9d493d644217905d012e13d26501
+import teambuilder.model.person.Person;
+import teambuilder.model.tag.Tag;
 import teambuilder.model.team.exceptions.DuplicateTeamException;
 import teambuilder.model.team.exceptions.TeamNotFoundException;
 
