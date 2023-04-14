@@ -24,18 +24,20 @@ title: User Guide
 * We are **still working** on making our user guide as user friendly as possible. You can help us by providing feedback [here](https://github.com/AY2223S2-CS2103T-T17-1/tp/issues/new)
 </div>
 
+<img class="center" src="images/Ui.png" alt="Labelled App Window" width='75%'/>
+
 **Team Builder (TB)** is a desktop app primarily for cross-faculty students to manage their contacts and build a multidisciplinary team based on soft skills and technical skills.
 
 It is optimized for use via a Command Line Interface (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, TB can help you build your team through your contacts much faster than traditional GUI apps.
 
 # About this guide <!-- omit in toc -->
 
-<img class="center" src="images/Ui.png" alt="Labelled App Window" width='75%'/>
+
 
 Welcome to Team Builder, we hope that this product will allow you
 to manage your contacts to build fantastic teams for your events/competitions.
 
-This guide is designed for users with and without technical experience and is to be followed narratively from top to bottom. However, if you are an experienced user, feel free to skip the Example context. If you are looking for a specific command, you can view the [table of commands here](#full-table-of-commands).
+This guide is designed for users with and without technical experience and is to be followed narratively from top to bottom. However, if you are an experienced user, feel free to skip the Example context. If you are looking for a specific command, you can view the [table of commands here](#1full-table-of-commands).
 
 <div markdown="block" class="alert alert-info">
 :information_source: **What do the symbols and formatting mean?:**
@@ -49,14 +51,15 @@ This guide is designed for users with and without technical experience and is to
 * [links](#about-this-guide) - these blue words are links and can be clicked on
 </div>
 
-## This guide is split into 6 sections: <!-- omit in toc -->
+## This guide is split into 7 sections: <!-- omit in toc -->
 
-1. [Full Table of Commands](#full-table-of-commands)
-2. [Quick Start](#quick-start)
-3. [Managing Contacts](#managing-contacts)
-4. [Making a Team](#making-a-team)
-5. [Extra Team Builder Features](#extra-team-builder-features)
-6. [FAQ](#faq)
+1. [Full Table of Commands](#1full-table-of-commands)
+2. [Quick Start](#2quick-start)
+3. [Managing Contacts](#3-managing-contacts)
+4. [Making a Team](#4making-a-team)
+5. [Extra Team Builder Features](#5extra-team-builder-features)
+6. [Command details](#6command-details)
+7. [FAQ](#7faq)
 
 Sections 3,4,5 contain descriptions and instructions for the main features of Team Builder.
 
@@ -65,29 +68,31 @@ Below is the full table of contents, in case you are looking for something very 
 <div markdown="block" class="alert alert-info">
 :information_source: **Full Table of Content:**
 
-- [Full Table of Commands](#full-table-of-commands)
-- [Quick start](#quick-start)
-- [Managing Contacts](#managing-contacts)
-  - [Adding a new contact : `add`](#adding-a-new-contact--add)
-  - [Updating a contact : `edit`](#updating-a-contact--edit)
-  - [Deleting a contact : `delete`](#deleting-a-contact--delete)
-- [Making a Team](#making-a-team)
-  - [Creating a team: `create`](#creating-a-team-create)
-  - [Finding the right teammate I : `find`](#finding-the-right-teammate-i--find)
-  - [Finding the right teammate II : `list`](#finding-the-right-teammate-ii--list)
-  - [Finding the right teammate III : `sort`](#finding-the-right-teammate-iii--sort)
-  - [Add a person to a team : `edit`](#add-a-person-to-a-team--edit)
-  - [Listing all teammates in a team : `show`](#listing-all-teammates-in-a-team--show)
-  - [Removing a teammate from a team : `edit`](#removing-a-teammate-from-a-team--edit)
-  - [Removing a team : `remove`](#removing-a-team--remove)
-- [Extra Team Builder Features](#extra-team-builder-features)
-  - [Clearing all entries : `clear`](#clearing-all-entries--clear)
-  - [Undoing a command : `undo`](#undoing-a-command--undo)
-  - [Redoing an undo command : `redo`](#redoing-an-undo-command--redo)
-  - [Exiting the program : `exit`](#exiting-the-program--exit)
-  - [Saving the data](#saving-the-data)
-  - [Editing the data file](#editing-the-data-file)
-- [FAQ](#faq)
+- [Full Table of Commands](#1full-table-of-commands)
+- [Quick start](#2quick-start)
+- [Narrative Guide for beginners](#narrative-guide)
+  - [Managing Contacts](#3-managing-contacts)
+    - [Adding a new contact : `add`](#31adding-a-new-contact--add)
+    - [Updating a contact : `edit`](#32updating-a-contact--edit)
+    - [Deleting a contact : `delete`](#33deleting-a-contact--delete)
+  - [Making a Team](#4making-a-team)
+    - [Creating a team: `create`](#41creating-a-team--create)
+    - [Finding the right teammate I : `find`](#42finding-the-right-teammate-i--find)
+    - [Finding the right teammate II : `list`](#43finding-the-right-teammate-ii--list)
+    - [Finding the right teammate III : `sort`](#44finding-the-right-teammate-iii--sort)
+    - [Add a person to a team : `edit`](#45add-a-person-to-a-team--edit)
+    - [Listing all teammates in a team : `show`](#46listing-all-teammates-in-a-team--show)
+    - [Removing a teammate from a team : `edit`](#47removing-a-teammate-from-a-team--edit)
+    - [Removing a team : `remove`](#48removing-a-team--remove)
+  - [Extra Team Builder Features](#5extra-team-builder-features)
+    - [Clearing all entries : `clear`](#51clearing-all-entries--clear)
+    - [Undoing a command : `undo`](#52undoing-a-command--undo)
+    - [Redoing an undo command : `redo`](#53redoing-an-undo-command--redo)
+    - [Exiting the program : `exit`](#54exiting-the-program--exit)
+    - [Saving the data](#55saving-the-data)
+    - [Editing the data file](#56editing-the-data-file)
+- [Command details](#6command-details)
+- [FAQ](#7faq)
 - [Future features](#future-features)
   - [Support for long tags](#support-for-long-tags)
   - [Phone number limit](#phone-number-limit)
@@ -103,7 +108,7 @@ Access this guide quickly through the `help` command or by clicking the **help**
 
 --------------------------------------------------------------------------------------------------------------------
 
-# Full Table of Commands
+# 1.Full Table of Commands
 
 <div markdown="block" class="alert alert-info">
 :information_source: **Notes about the command format:**
@@ -123,19 +128,19 @@ Access this guide quickly through the `help` command or by clicking the **help**
 
 Command |          Type          |Format, Examples
 :--------:|:----------------------:|:--------:
-[**add**](#adding-a-new-contact--add) |       Modifying        |`add n/NAME [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [m/MAJOR] [t/TAG]... [T/TEAM_NAME]...`
-[**clear**](#clearing-all-entries--clear) |       Modifying        |`clear`
-[**delete**](#deleting-a-contact--delete) |       Modifying        |`delete INDEX`<br> e.g., `delete 3`
-[**edit**](#updating-a-contact--edit) |       Modifying        |`edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]... [T/TEAM_NAME]... ​`
-[**find**](#finding-the-right-teammate-i--find) |        Listing         | `find NAME/MAJOR/TAG [MORE_KEYWORDS]`<br> e.g., `find James Jake`
-[**sort**](#finding-the-right-teammate-iii--sort) |        Listing         |`sort ORDER SORT_BY`<br> e.g., `sort desc tcount`
-[**create**](#creating-a-team-create) |       Modifying        |`create tn/TEAM_NAME td/TEAM_DESC [t/TAG]` <br> e.g., `create tn/TeamA td/2103T_tP t/Java`
-[**show**](#listing-all-teammates-in-a-team--show) |        Listing         |`show TEAM_NAME [OTHER_TEAM_NAME]...`
-[**list**](#finding-the-right-teammate-ii--list) |        Listing         |`list`
-[**remove**](#removing-a-team--remove) |       Modifying        |`remove TEAM_NAME`
-[**undo**](#undoing-a-command--undo) | Special<br/> Modifying | `undo`
-[**redo**](#redoing-an-undo-command--redo) |       Modifying        |`redo`
-[**help**](#help-command) |         Window         |`help`
+[**add**](#31adding-a-new-contact--add) |       Modifying        |`add n/NAME [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [m/MAJOR] [t/TAG]... [T/TEAM_NAME]...`
+[**clear**](#32clearing-all-entries--clear) |       Modifying        |`clear`
+[**delete**](#33deleting-a-contact--delete) |       Modifying        |`delete INDEX`<br> e.g., `delete 3`
+[**edit**](#32updating-a-contact--edit) |       Modifying        |`edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]... [T/TEAM_NAME]... ​`
+[**find**](#42finding-the-right-teammate-i--find) |        Listing         | `find NAME/MAJOR/TAG [MORE_KEYWORDS]`<br> e.g., `find James Jake`
+[**sort**](#44finding-the-right-teammate-iii--sort) |        Listing         |`sort ORDER SORT_BY`<br> e.g., `sort desc tcount`
+[**create**](#41creating-a-team--create) |       Modifying        |`create tn/TEAM_NAME td/TEAM_DESC [t/TAG]` <br> e.g., `create tn/TeamA td/2103T_tP t/Java`
+[**show**](#46listing-all-teammates-in-a-team--show) |        Listing         |`show TEAM_NAME [OTHER_TEAM_NAME]...`
+[**list**](#43finding-the-right-teammate-ii--list) |        Listing         |`list`
+[**remove**](#48removing-a-team--remove) |       Modifying        |`remove TEAM_NAME`
+[**undo**](#52undoing-a-command--undo) | Special<br/> Modifying | `undo`
+[**redo**](#53redoing-an-undo-command--redo) |       Modifying        |`redo`
+[**help**](#help-commandhelp) |         Window         |`help`
 
 <div markdown="block" class="alert alert-primary">
 :bulb: **Tips on command behaviour:**
@@ -153,7 +158,7 @@ Command |          Type          |Format, Examples
 
 --------------------------------------------------------------------------------------------------------------------
 
-# Quick start
+# 2.Quick start
 
 Prerequisite:
 
@@ -202,8 +207,17 @@ Information on the Java version installed should appear in the command terminal.
 <div style="page-break-after: always;"></div>
 
 --------------------------------------------------------------------------------------------------------------------
+# Narrative Guide
 
-# Managing Contacts
+This section is for users who are new to TeamBuilder, or are unfamiliar with Command-Line interface applications. 
+
+We will walk you through the features of TeamBuilder, explaining each feature with the aid of example use-cases and screenshots. 
+
+For a brief overview of all commands, see the [full table of commands](#1full-table-of-commands).
+
+For concise details regarding each command, see [command details](#6command-details).
+
+# 3. Managing Contacts
 
 Team Builder allows you to easily manage contacts of individuals that you would want to be teammates with.
 
@@ -212,9 +226,9 @@ Your contacts can be managed in these ways:
 2. Updating any existing contact's information and tags.
 3. Deleting contacts that you no longer want to be teammates with or have lost contact.
 
-## Adding a new contact : `add`
+## 3.1.Adding a new contact : `add`
 
-Format: `add n/NAME [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [m/MAJOR] [t/TAG]... [T/TEAM_NAME]...​`
+Format: `add n/NAME [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [m/MAJOR] [t/TAG]... [T/TEAM_NAME]...`
 
 
 **Example context**:
@@ -248,7 +262,7 @@ A contact can have any number of tags (including 0). Tags are especially useful 
 A contact must have a name, other features are optional.
 </div>
 
-## Updating a contact : `edit`
+## 3.2.Updating a contact : `edit`
 
 Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [m/MAJOR] [t/TAG]… [T/TEAM_NAME]​`
 
@@ -283,7 +297,7 @@ Let's use the `edit` command to update his information.
     specifying any after it.
 </div>
 
-## Deleting a contact : `delete`
+## 3.3.Deleting a contact : `delete`
 
 Format: `delete INDEX`
 
@@ -308,7 +322,7 @@ Again, we see **John** is index 1 in our display.
 
 <div style="page-break-after: always;"></div>
 
-# Making a Team
+# 4.Making a Team
 
 Team Builder helps you to make a team easily and keep in mind any skills that are required.
 
@@ -320,7 +334,7 @@ Our current team management features include:
 5. Removing a person from a team
 6. Removing a team entirely
 
-## Creating a team: `create`
+## 4.1.Creating a team: `create`
 
 Format: `create tn/TEAM_NAME td/TEAM_DESC [t/TAG]...`
 
@@ -339,7 +353,7 @@ are required too.
 
 <img class="center" alt="result for 'create team'" src="images/CreateTeam.png" width="50%" />
 
-## Finding the right teammate I : `find`
+## 4.2.Finding the right teammate I : `find`
 
 <a id="find-command" style="color:black"> Format: `find NAME/MAJOR/TAG [MORE_KEYWORDS]...` </a>
 
@@ -394,7 +408,7 @@ Now your team is almost formed, but you still need a person who mastered JavaScr
 </div>
 
 
-## Finding the right teammate II : `list`
+## 4.3.Finding the right teammate II : `list`
 
 Format: `list`
 
@@ -409,7 +423,7 @@ You feel that you have narrowed down to too little people. Let's display our who
 If you have accidentally added extra input fields after `list`, the command would be accepted as anything after `list` is discarded.
 
 
-## Finding the right teammate III : `sort`
+## 4.4.Finding the right teammate III : `sort`
 
 <a id="sort-command" style="color:black"> Format: `sort ORDER SORT_BY` </a>
 
@@ -442,7 +456,7 @@ Sort would be performed on the current list of persons displayed on the UI. If y
 performing a `find` command etc., remember to use `list` command before using `sort`.
 </div>
 
-## Add a person to a team : `edit`
+## 4.5.Add a person to a team : `edit`
 
 Format: `edit INDEX [T/TEAM_NAME]...`
 
@@ -473,7 +487,7 @@ reach out to him to form your team for Hack&Roll.
 * If you are adding a team to a person with existing teams, you need to type out their other team names as well. e.g. `edit 1 T/Old Team T/New Team`
 </div>
 
-## Listing all teammates in a team : `show`
+## 4.6.Listing all teammates in a team : `show`
 
 Format: `show TEAM_NAME [OTHER_TEAM_NAME]...`
 
@@ -490,7 +504,7 @@ NUSMeets team.
 
 <img class="center" alt="result for 'show'" src="images/ShowNUSMeets.png" width="50%" />
 
-## Removing a teammate from a team : `edit`
+## 4.7.Removing a teammate from a team : `edit`
 
 Format: `edit INDEX [T/TEAM_NAME]`
 
@@ -519,7 +533,7 @@ If you are removing just one team from a person with multiple teams, you need to
 (e.g. John is in Team1 and Team2 but he will be removed from Team2, `edit 1 T/Team1`)
 </div>
 
-## Removing a team : `remove`
+## 4.8.Removing a team : `remove`
 
 Format: `remove TEAM_NAME`
 
@@ -542,7 +556,7 @@ The `remove` command will also remove the team tags for people who were in the t
 </div>
 
 
-# Extra Team Builder Features
+# 5.Extra Team Builder Features
 
 Team Builder has some quality of life features that may help you in many different ways.
 
@@ -554,7 +568,7 @@ This includes:
 5. Saving data
 6. Editing the data file
 
-## Clearing all entries : `clear`
+## 5.1.Clearing all entries : `clear`
 
 Format: `clear`
 
@@ -564,7 +578,7 @@ Clears all entries from the Team Builder, instead of manually removing teams and
 
 `clear`
 
-## Undoing a command : `undo`
+## 5.2.Undoing a command : `undo`
 
 Format: `undo`
 
@@ -583,14 +597,14 @@ Let's use the `undo` command to revert our Team Builder back to before we typed 
 
 * You can only `undo` up to 10 times in a row! After the 10th `undo`, no more `undo` is possible.
 
-* You can only `undo` [modifying commands](#full-table-of-commands).
+* You can only `undo` [modifying commands](#1full-table-of-commands).
 
 * You may also undo into a state where `find` was called and so your contact list is not shown fully.
 Simply use `list` to view the full contact list again.
 
 </div>
 
-## Redoing an undo command : `redo`
+## 5.3.Redoing an undo command : `redo`
 
 Format: `redo`
 
@@ -610,18 +624,18 @@ These are all acceptable as anything after `redo` is discarded.
 Typing any [modifying command](#full-table-of-commands) (other than an undo) after an `undo` makes it impossible to `redo` that `undo` command!
 </div>
 
-## Exiting the program : `exit`
+## 5.4.Exiting the program : `exit`
 
 Format: `exit`
 
 Exits the program.
 
 
-## Saving the data
+## 5.5.Saving the data
 
 Team Builder data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
 
-## Editing the data file
+## 5.6.Editing the data file
 
 Team Builder data are saved as a JSON file `[JAR file location]/data/addressbook.json`. Advanced users are welcome to update data directly by editing that data file.
 
@@ -631,8 +645,149 @@ If your changes to the data file makes its format invalid, Team Builder will dis
 </div>
 
 --------------------------------------------------------------------------------------------------------------------
+# 6.Command details
 
-# FAQ
+This section describes TeamBuilder commands in more detail. This section is intended for users that either:
+- have some programming knowledge,
+- are familiar with CLI applications, or
+- are familiar with TeamBuilder
+
+For beginners who are new to TeamBuilder, we recommend checking out the [narrative guide](#narrative-guide).
+
+For a brief overview of all commands, see the [full table of commands](#1full-table-of-commands).
+
+## Command: `add` 
+Adds a person into TeamBuilder. The newly added person will appear in the _contact list_ panel on the left.
+
+**Format:** `add n/NAME [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [m/MAJOR] [t/TAG]... [T/TEAM_NAME]...`
+
+The `add` command is followed by the details of the contact.
+
+- **Name is the only mandatory field.** All other fields such as phone number or major are optional.
+- The order in which the details are entered does not matter.<br> _I.e. `add n/Johnny a/Home sweet home` and `add a/Home sweet home n/Johnny` will produce the same result._
+- When adding a team, ensure that the team has already been created in TeamBuilder, else an error will be thrown.
+
+**Example:** `add n/John p/98765432 m/Business t/Java t/`
+
+## Command: `delete`
+Deletes an existing contact from TeamBuilder.
+
+**Format:** `delete INDEX` 
+
+The `delete` command is followed by the index of the contact you wish to delete. 
+
+- The contact you wish to delete should be visible in the _contact list_. 
+- The index is the numbering on the contact, on the left of their names.
+- The teams with the deleted contact will be updated to reflect the changes.
+
+**Example:** `delete 3`
+
+## Command: `edit`
+Edits the details of an existing contact. This command is also used to add person into teams.
+
+**Format:** `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [m/MAJOR] [t/TAG]… [T/TEAM_NAME]`
+
+The `edit` command is followed by the index of the contact you wish to edit, and then followed by the fields you wish to edit
+
+- The edit command must be immediately followed by the index. 
+- At least one field must be changed edited.
+- You may edit any amount and combination of fields using this command.
+- To remove a field, add the field prefix but leave it blank. 
+  - E.g. to remove the third contact's address, enter `edit 3 a/`
+- If you are adding a team to a person with existing teams, you need to type out their other team names as well. e.g. `edit 1 T/Old Team T/New Team`
+
+**Example:** `edit 1 n/Jason Chua a/ T/Old Team T/New Team`
+
+## Command: `find`
+Searches through contacts in TeamBuilder based on keywords. 
+
+**Format:** `find KEYWORDS [KEYWORDS...]`
+
+The `find` command is followed by keywords(s) of whatever your are looking for.
+
+- The find command only looks at the contacts' name, major, and tags.
+- Each separate keyword is searched for independently. I.e. entering `find Charlie Java` will have TeamBuilder return you the contacts with either `Charlie` or `Java`, in either their name, major, or tags.
+
+**Example:** `find JavaScript`
+
+If you wish to find people belonging to a certain team, see the [show command](#command--show).
+
+## Command: `list`
+Lists out all existing contacts in TeamBuilder.
+
+**Format:** `list`
+
+## Command: `create`
+Creates a team in TeamBuilder. Newly created teams will appear in the _Team List_ on the right
+
+**Format:** `create tn/TEAM_NAME td/TEAM_DESC [t/TAG]...`
+
+The `create` command is followed by the team's name, the team's description, and the tags indicating what skills the team requires.
+
+- The team name and team description cannot be empty.
+- You may add as many tags as you want to the team.
+
+**Example:** `create tn/NUSMeets td/A multidisciplinary team for upcoming HacknRoll in mid Jan. t/JavaScript t/React t/AWS t/Project Management t/UI Design`
+
+To add a person into a team, see the [edit command](#command--edit).
+
+## Command: `remove`
+Removes existing team from TeamBuilder. 
+
+**Format:** `remove TEAM_NAME`
+
+The `remove` command is followed by the team name of which you wish to remove
+
+- You have to type the full name of the team you wish to remove
+- The persons belonging to the removed team will have their team tags updated.
+
+**Example:** `remove NUSMeets`
+
+To remove a person from a team, see the [edit command](#command--edit)
+
+## Command: `show`
+Shows all members belonging to a team.
+
+**Format:** `show TEAM_NAME [OTHER_TEAM_NAME]...`
+
+The `show` command is followed by the team name which members you wish to find.
+
+- Each separate keyword is searched for independently. _I.e. entering `find NUS Hacker` will have TeamBuilder return you the contacts that are in Teams with the word `NUS` or `Hacker` in its name._
+
+**Example:** `show NUSMeets`
+
+## Command: `sort`
+Sorts the contacts based on number of tags. Can be in either ascending or descending order.
+
+**Format:**`sort ORDER SORT_BY`
+
+The `sort` command is followed by the order of sorting, and then the attribute the sorting is performed on.
+
+- There are only two orders in which sort can be performed: `desc` or `asc`.
+- Currently, the only attribute TeamBuilder can sort by is `tcount`, which is tag count.
+- Tag count refers only to tags of a contact _(in blue)_, not team tags *(in red)*
+
+**Example** `sort asc tcount`
+
+## Command: `undo`
+Undo the previous changes
+
+**Format:**  `undo`
+
+## Command: `redo`
+Redo the undone changes
+
+**Format:**  `redo`
+
+## Command: `clear`
+Clears all contacts and teams from TeamBuilder.
+
+**Format:** `clear`
+
+
+--------------------------------------------------------------------------------------------------------------------
+
+# 7.FAQ
 
 **Q**: How do I transfer my data to another Computer?<br>
 **A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Team Builder home folder.
