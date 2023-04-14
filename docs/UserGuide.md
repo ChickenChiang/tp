@@ -202,7 +202,7 @@ Information on the Java version installed should appear in the command terminal.
 
    * `exit` : Exits the app.
 
-2. Refer to the [Full Table of Commands](UserGuide.html#full-table-of-commands) above for details of each command.
+2. Refer to the [Full Table of Commands](UserGuide.html#1full-table-of-commands) above for details of each command.
 
 <div style="page-break-after: always;"></div>
 
