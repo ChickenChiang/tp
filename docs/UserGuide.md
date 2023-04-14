@@ -215,7 +215,7 @@ We will walk you through the features of TeamBuilder, explaining each feature wi
 
 For a brief overview of all commands, see the [full table of commands](#1full-table-of-commands).
 
-For concise details regarding each command, see [command details](#6command-details).
+For concise details regarding each command, see [command details](#6command-details) (recommended for more experienced users).
 
 # 3. Managing Contacts
 
@@ -654,7 +654,7 @@ This section describes TeamBuilder commands in more detail. This section is inte
 
 For beginners who are new to TeamBuilder, we recommend checking out the [narrative guide](#narrative-guide).
 
-For a brief overview of all commands, see the [full table of commands](#1full-table-of-commands).
+For a brief overview of all commands, see the [full table of commands](#1full-table-of-commands) (recommended for more experienced users).
 
 ## Command: `add` 
 Adds a person into TeamBuilder. The newly added person will appear in the _contact list_ panel on the left.
@@ -667,7 +667,7 @@ The `add` command is followed by the details of the contact.
 - The order in which the details are entered does not matter.<br> _I.e. `add n/Johnny a/Home sweet home` and `add a/Home sweet home n/Johnny` will produce the same result._
 - When adding a team, ensure that the team has already been created in TeamBuilder, else an error will be thrown.
 
-**Example:** `add n/John p/98765432 m/Business t/Java t/`
+**Example:** `add n/John p/98765432 m/Business t/Java t/React`
 
 ## Command: `delete`
 Deletes an existing contact from TeamBuilder.
