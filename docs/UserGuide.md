@@ -654,7 +654,7 @@ This section describes TeamBuilder commands in more detail. This section is inte
 
 For beginners who are new to TeamBuilder, we recommend checking out the [narrative guide](#narrative-guide).
 
-For a brief overview of all commands, see the [full table of commands](#1full-table-of-commands) (recommended for more experienced users).
+For a brief overview of all commands, see the [full table of commands](#1full-table-of-commands).
 
 ## Command: `add` 
 Adds a person into TeamBuilder. The newly added person will appear in the _contact list_ panel on the left.
